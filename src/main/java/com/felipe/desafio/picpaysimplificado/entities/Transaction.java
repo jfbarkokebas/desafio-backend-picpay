@@ -3,6 +3,7 @@ package com.felipe.desafio.picpaysimplificado.entities;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,14 +25,17 @@ public class Transaction {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "pagador_id")
+    @JoinColumn(name = "pagador_id", nullable = false)
     private User pagador;
 
     @ManyToOne
-    @JoinColumn(name = "recebedor_id")
+    @JoinColumn(name = "recebedor_id", nullable = false)
     private User recebedor;
 
+     @Column(nullable = false)
     private LocalDateTime dataTransacao;
+
+    @Column(nullable = false)
     private BigDecimal valor;
 
 }

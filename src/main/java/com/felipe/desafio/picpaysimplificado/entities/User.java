@@ -21,16 +21,19 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String nomeCompleto;
 
-    @Column(nullable = false)
-    private Integer cpf;
+    @Column(nullable = false , unique = true)
+    private String numeroDocumento;
 
-    @Column(nullable = false)
+    @Column(nullable = false , unique = true)
     private String email;
 
+    @Column(nullable = false)
     private String senha;
 
+    @Column(nullable = false)
     private UserType tipo;
 
 }
